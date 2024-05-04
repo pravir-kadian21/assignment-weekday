@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Autocomplete from "@mui/material/Autocomplete";
@@ -37,6 +37,7 @@ const Filters = () => {
         : filterVal?.value.toLowerCase();
     });
     updatedFilters[type] = filtersApplied;
+
     dispatch(updateFilters({ appliedFilters: updatedFilters }));
   };
 
@@ -46,7 +47,7 @@ const Filters = () => {
   );
 
   return (
-    <div class="filters-container">
+    <div className="filters-container">
       <Autocomplete
         multiple
         limitTags={1}
@@ -54,17 +55,18 @@ const Filters = () => {
         options={ROLE_FILTER_OPTION}
         groupBy={(option) => option.category}
         getOptionLabel={(option) => option.value}
-        sx={{ width: 180 }}
+        sx={{ minWidth: 180 }}
         renderInput={(params) => <TextField {...params} placeholder="Roles" />}
         onChange={(e, value) => handleFilterChange(value, "roles")}
         className="filters"
         size="small"
       />
+
       <Autocomplete
         disablePortal
         id="combo-box-demo"
         options={EXPERIENCE_FILTER_OPTIONS}
-        sx={{ width: 180 }}
+        sx={{ minWidth: 180 }}
         renderInput={(params) => (
           <TextField {...params} placeholder="Experience" />
         )}
@@ -78,7 +80,7 @@ const Filters = () => {
         options={REMOTE_FILTER_OPTIONS}
         getOptionLabel={(option) => option.label}
         renderInput={(params) => <TextField {...params} placeholder="Remote" />}
-        sx={{ width: 180 }}
+        sx={{ minWidth: 180 }}
         onChange={(e, value) => handleFilterChange(value, "remote")}
         className="filters"
         size="small"
@@ -94,7 +96,7 @@ const Filters = () => {
             <TextField {...params} placeholder="Minimum Base Pay Salary" />
           );
         }}
-        sx={{ width: 240 }}
+        sx={{ minWidth: 260 }}
         onChange={(e, value) => handleFilterChange(value, "salary")}
         className="filters"
         size="small"

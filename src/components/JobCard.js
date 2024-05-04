@@ -4,49 +4,66 @@ import Button from "@mui/material/Button";
 
 const JobCard = ({
   job: {
-    companyName,
-    jobRole,
-    location,
+    companyName = "",
+    jobRole = "",
+    location = "",
     logoUrl,
-    minExp,
-    minJdSalary,
-    maxJdSalary,
-    salaryCurrencyCode,
+    minExp = 0,
+    minJdSalary = 0,
+    maxJdSalary = 0,
+    salaryCurrencyCode = "USD",
     jobDetailsFromCompany,
+    jdLink,
   },
 }) => {
   return (
-    <Paper
-      elevation={3}
-      class="job-paper"
-      //   style={{
-      //     width: "28%",
-      //     padding: "10px",
-      //     overflowWrap: "break-word",
-      //     height: "560px",
-      //     margin: "24px 24px",
-      //   }}
-    >
+    <Paper elevation={3} class="job-paper">
       <div style={{ display: "flex", gap: "8px" }}>
         <div>
           <img src={logoUrl} alt="company-logo" width={40} />
         </div>
         <div style={{ display: "flex", gap: "4px", flexDirection: "column" }}>
-          <div>{companyName}</div>
-          <div>{jobRole}</div>
-          <div>{location}</div>
+          <div className="company-name">{companyName}</div>
+          <div className="job-role">{jobRole}</div>
+          <div className="location">{location}</div>
         </div>
       </div>
-      <div style={{ margin: "12px 0" }}>
-        Estimated Salary: {minJdSalary} - {maxJdSalary} {salaryCurrencyCode}
+      <div className="salary">
+        Estimated Salary: {minJdSalary || 0} - {maxJdSalary}{" "}
+        {salaryCurrencyCode} ✅
       </div>
-      <div style={{ marginBottom: "2px" }}>About the company:</div>
-      <div>About Us:</div>
-      <div>{jobDetailsFromCompany}</div>
-      <div style={{ marginTop: "24px" }}>Minimum Experience</div>
-      <div>{minExp} years</div>
-      <Button variant="contained" fullWidth style={{ marginTop: "18px" }}>
-        Easy Apply
+      <a href={jdLink} className="jd-link" target="_blank">
+        {jdLink}
+      </a>
+      <div className="about-company">About the Company:</div>
+      <div className="about-us">About Us:</div>
+      <div style={{ position: "relative" }}>
+        <div className="job-details">
+          {jobDetailsFromCompany.substring(0, 800)}...
+        </div>
+        <div
+          style={{
+            color: "red",
+            position: "absolute",
+            bottom: "-20px",
+            left: "120px",
+            color: "#4943da",
+            fontSize: "14px",
+          }}
+        >
+          Show More
+        </div>
+      </div>
+      <div className="min-exp-heading">Minimum Experience</div>
+      <div className="min-exp">{minExp || 0} years</div>
+      <Button
+        variant="contained"
+        fullWidth
+        style={{ marginTop: "18px" }}
+        className="easy-apply-btn"
+        size="large"
+      >
+        ⚡ Easy Apply
       </Button>
     </Paper>
   );
