@@ -16,30 +16,6 @@ const JobCard = ({
   },
 }) => {
   return (
-    // <div style={{ width: "33%" }}>
-    //   <div style={{ display: "flex" }}>
-    //     <div>
-    //       <img
-    //         src="https://logo.clearbit.com/lg.com"
-    //         alt="company-logo"
-    //         width={40}
-    //       />
-    //     </div>
-    //     <div>
-    //       <div>Company Name</div>
-    //       <div>Role</div>
-    //       <div>location</div>
-    //     </div>
-    //   </div>
-    //   <div>Estimated Salry</div>
-    //   <div>About the company:</div>
-    //   <div>About Us</div>
-    //   <div style={{ width: "10px" }}>
-    //     fmxlmklzvklsklsfklsdkljklfsjklfsjklfsjklfjkjfskjfskljfskgjkfsjkfmxlmklzvklsklsfklsdkljklfsjklfsjklfsjklfjkjfskjfskljfskgjkfsjkfmxlmklzvklsklsfklsdkljklfsjklfsjklfsjklfjkjfskjfskljfskgjkfsjk
-    //   </div>
-    //   <div>Minimum Experience</div>
-    //   <div>2 years</div>
-    // </div>
     <Paper
       elevation={3}
       style={{
@@ -72,23 +48,6 @@ const JobCard = ({
         Easy Apply
       </Button>
     </Paper>
-    // <div
-    //   style={{
-    //     width: "15rem",
-    //     background: "red",
-    //     display: "flex",
-    //     flexDirection: "column",
-    //     overflowWrap: "break-word",
-    //   }}
-    // >
-    //   <img
-    //     src="https://logo.clearbit.com/lg.com"
-    //     alt="company-logo"
-    //     width={40}
-    //   />
-    //   <h1>ioi</h1>
-    //   <p>jskfjkdjfkdjfjdkfdfdkfdkflkdlfkdlfkldsdsd</p>
-    // </div>
   );
 };
 
