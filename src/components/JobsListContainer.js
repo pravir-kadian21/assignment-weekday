@@ -4,7 +4,11 @@ import JobCard from "./JobCard";
 const JobsListContainer = ({ jobsList }) => {
   return (
     <div
-      style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        margin: "0 24px",
+      }}
     >
       {jobsList.map((job) => {
         const { jdUid } = job;
