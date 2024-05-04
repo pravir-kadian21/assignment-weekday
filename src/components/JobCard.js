@@ -18,13 +18,14 @@ const JobCard = ({
   return (
     <Paper
       elevation={3}
-      style={{
-        width: "28%",
-        padding: "10px",
-        overflowWrap: "break-word",
-        height: "560px",
-        margin: "24px 24px",
-      }}
+      class="job-paper"
+      //   style={{
+      //     width: "28%",
+      //     padding: "10px",
+      //     overflowWrap: "break-word",
+      //     height: "560px",
+      //     margin: "24px 24px",
+      //   }}
     >
       <div style={{ display: "flex", gap: "8px" }}>
         <div>

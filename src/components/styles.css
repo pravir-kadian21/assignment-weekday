@@ -1,0 +1,22 @@
+.filters {
+  margin: 12px !important;
+}
+
+.filters span {
+  font-size: 10px;
+}
+
+.filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 12px 18px;
+}
+
+.job-paper {
+  width: 28%;
+  padding: 10px;
+  overflow-wrap: break-word;
+  height: 560px;
+  margin: 24px 24px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px 0px !important;
+}
