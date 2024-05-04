@@ -32,7 +32,7 @@ const JobCard = ({
         Estimated Salary: {minJdSalary || 0} - {maxJdSalary}{" "}
         {salaryCurrencyCode} ✅
       </div>
-      <a href={jdLink} className="jd-link" target="_blank">
+      <a href={jdLink} className="jd-link" target="_blank" rel="noreferrer">
         {jdLink}
       </a>
       <div className="about-company">About the Company:</div>
