@@ -160,6 +160,7 @@ const Body = () => {
     <div>
       <Filters />
       <JobsListContainer jobsList={filteredJobsList} />
+      {isLoading && <div className="fallback-msg">Loading...</div>}
     </div>
   );
 };
