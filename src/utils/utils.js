@@ -7,3 +7,8 @@ export function myDebounce(func, timeout = 300) {
     }, timeout);
   };
 }
+
+const myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+export const queryOptions = { method: "POST", headers: myHeaders };

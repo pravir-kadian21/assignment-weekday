@@ -1,0 +1,149 @@
+.jd-link {
+  margin-bottom: 24px;
+}
+
+.filters {
+  margin: 12px !important;
+}
+
+.filters .MuiAutocomplete-tag {
+  border-radius: 0;
+}
+
+.filters span {
+  font-size: 12px;
+}
+
+.filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 12px 36px;
+}
+
+.job-paper {
+  width: 25%;
+  padding: 24px;
+  overflow-wrap: break-word;
+  height: 560px;
+  margin: 24px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px 0px !important;
+  border-radius: 24px;
+}
+
+.job-paper:hover {
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.01);
+}
+
+.company-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8b8b8b;
+  letter-spacing: 1px;
+}
+
+.job-role {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.location {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.salary {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 12px 0;
+}
+
+.about-company {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-bottom: 2px;
+  margin-top: 1rem;
+}
+
+.about-us {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.job-details {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.min-exp-heading {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #8b8b8b;
+  margin-top: 2rem;
+}
+
+.min-exp {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.easy-apply-btn {
+  background-color: rgb(85, 239, 196) !important;
+  color: #000 !important;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 18px !important;
+}
+
+.fallback-msg {
+  display: flex;
+  justify-content: center;
+  margin-top: 10rem;
+}
+
+.job-details-container {
+  position: relative;
+}
+
+.company-info-container {
+  display: flex;
+  gap: 8px;
+}
+
+.company-info {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.show-more {
+  position: absolute;
+  bottom: -20px;
+  left: 120px;
+  color: #4943da;
+  font-size: 14px;
+}
+
+.jobs-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 24px;
+}
+
+@media screen and (max-width: 1280px) {
+  .job-paper {
+    width: 38%;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .job-paper {
+    width: 100%;
+  }
+}

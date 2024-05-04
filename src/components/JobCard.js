@@ -18,11 +18,11 @@ const JobCard = ({
 }) => {
   return (
     <Paper elevation={3} class="job-paper">
-      <div style={{ display: "flex", gap: "8px" }}>
+      <div className="company-info-container">
         <div>
           <img src={logoUrl} alt="company-logo" width={40} />
         </div>
-        <div style={{ display: "flex", gap: "4px", flexDirection: "column" }}>
+        <div className="company-info">
           <div className="company-name">{companyName}</div>
           <div className="job-role">{jobRole}</div>
           <div className="location">{location}</div>
@@ -37,29 +37,17 @@ const JobCard = ({
       </a>
       <div className="about-company">About the Company:</div>
       <div className="about-us">About Us:</div>
-      <div style={{ position: "relative" }}>
+      <div className="job-details-container">
         <div className="job-details">
           {jobDetailsFromCompany.substring(0, 800)}...
         </div>
-        <div
-          style={{
-            color: "red",
-            position: "absolute",
-            bottom: "-20px",
-            left: "120px",
-            color: "#4943da",
-            fontSize: "14px",
-          }}
-        >
-          Show More
-        </div>
+        <div className="show-more">Show More</div>
       </div>
       <div className="min-exp-heading">Minimum Experience</div>
       <div className="min-exp">{minExp || 0} years</div>
       <Button
         variant="contained"
         fullWidth
-        style={{ marginTop: "18px" }}
         className="easy-apply-btn"
         size="large"
       >
