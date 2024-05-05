@@ -1,7 +1,7 @@
 export const GET_JOBS_API_URL =
   "https://api.weekday.technology/adhoc/getSampleJdJSON";
 
-export const INPUT_DEBOUNSE_TIMEOUT = 500;
+export const INPUT_DEBOUNSE_TIMEOUT = 300;
 
 export const EXPERIENCE_FILTER_OPTIONS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
