@@ -1,9 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+// Components
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 
+// Utils
 import { updateFilters } from "../utils/filterSlice";
 import {
   EXPERIENCE_FILTER_OPTIONS,
@@ -24,7 +26,7 @@ const Filters = () => {
   const handleFilterChange = (filterValues, type) => {
     const updatedFilters = { ...filters };
 
-    // checks if filterValues is not an array -> for all AutoComplete where only one value is possibe
+    // checks if filterValues is not an array -> for all AutoComplete where only one value is possibe or for text fields
     if (!Array.isArray(filterValues)) {
       updatedFilters[type] = [filterValues];
       dispatch(updateFilters({ appliedFilters: updatedFilters }));
@@ -41,6 +43,7 @@ const Filters = () => {
     dispatch(updateFilters({ appliedFilters: updatedFilters }));
   };
 
+  // debonce function to call the callback after some delay
   const debouncedHandleChange = myDebounce(
     (...args) => handleFilterChange(...args),
     INPUT_DEBOUNSE_TIMEOUT
@@ -74,6 +77,7 @@ const Filters = () => {
         className="filters"
         size="small"
       />
+
       <Autocomplete
         multiple
         id="multiple-limit-tags"
@@ -85,6 +89,7 @@ const Filters = () => {
         className="filters"
         size="small"
       />
+
       <Autocomplete
         multiple
         limitTags={2}

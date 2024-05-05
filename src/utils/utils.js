@@ -1,7 +1,7 @@
 export function myDebounce(func, timeout = 300) {
   let timer;
   return (...args) => {
-    clearTimeout(timer);
+    if (timer) clearTimeout(timer);
     timer = setTimeout(() => {
       func.apply(this, args);
     }, timeout);
@@ -11,4 +11,4 @@ export function myDebounce(func, timeout = 300) {
 const myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 
-export const queryOptions = { method: "POST", headers: myHeaders };
+export const fetchOptions = { method: "POST", headers: myHeaders };

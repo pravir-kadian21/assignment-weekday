@@ -1,11 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
+
+// Components
 import JobCard from "./JobCard";
 
 const JobsListContainer = ({ jobsList }) => {
-  if (!jobsList || !jobsList.length) {
+  const isLoading = useSelector((store) => store.config.isLoading);
+
+  if ((!jobsList || !jobsList?.length) && !isLoading) {
     return (
       <div className="fallback-msg">
-        OOPS!! No Results Found, try changing the filters
+        OOPS!! No Results Found, try changing the filters or try after sometime
       </div>
     );
   }

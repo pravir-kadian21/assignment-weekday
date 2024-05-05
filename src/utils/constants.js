@@ -3,6 +3,8 @@ export const GET_JOBS_API_URL =
 
 export const INPUT_DEBOUNSE_TIMEOUT = 300;
 
+export const API_DATA_LIMIT = 10;
+
 export const EXPERIENCE_FILTER_OPTIONS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 export const REMOTE_FILTER_OPTIONS = [
@@ -104,6 +106,26 @@ export const ROLE_FILTER_OPTION = [
   {
     category: "PRODUCT",
     value: "Product Manager",
+  },
+  {
+    category: "OPERATIONS",
+    value: "Operations Manager",
+  },
+  {
+    category: "DATA ANALYST",
+    value: "Data Analyst",
+  },
+  {
+    category: "HR",
+    value: "Hr",
+  },
+  {
+    category: "FINANCE",
+    value: "Finance",
+  },
+  {
+    category: "LEGAL",
+    value: "Legal",
   },
 ];
 

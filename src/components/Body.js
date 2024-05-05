@@ -1,44 +1,52 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+// Components
 import Filters from "./Filters";
 import JobsListContainer from "./JobsListContainer";
 
-import { GET_JOBS_API_URL } from "../utils/constants";
+// utils
+import { API_DATA_LIMIT, GET_JOBS_API_URL } from "../utils/constants";
 import { updateFilteredJobsList, updateJobsList } from "../utils/jobsSlice";
-import { queryOptions } from "../utils/utils";
+import { fetchOptions } from "../utils/utils";
+import { toggleLoading } from "../utils/configSlice";
 
 const Body = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const [offset, setOffset] = useState(0);
 
   const dispatch = useDispatch();
   const jobsList = useSelector((store) => store.jobs.jobsList);
   const filteredJobsList = useSelector((store) => store.jobs.filteredJobsList);
   const appliedFilters = useSelector((store) => store.appliedFilters.filters);
+  const isLoading = useSelector((store) => store.config.isLoading);
 
   // fetches data from the api
   const getJobsData = async () => {
-    setIsLoading(true);
+    dispatch(toggleLoading());
 
-    const body = JSON.stringify({
-      limit: 10,
-      offset,
-    });
-    const data = await fetch(GET_JOBS_API_URL, {
-      ...queryOptions,
-      body,
-    });
+    try {
+      const body = JSON.stringify({
+        limit: API_DATA_LIMIT,
+        offset,
+      });
+      const data = await fetch(GET_JOBS_API_URL, {
+        ...fetchOptions,
+        body,
+      });
 
-    const json = await data.json();
-    const filteredJobs = filterJobsList([...jobsList, ...json.jdList]);
+      const json = await data.json();
+      const filteredJobs = filterJobsList([...jobsList, ...json.jdList]);
 
-    setIsLoading(false);
-    setOffset((offset) => offset + 10); // increments offset for next api call
+      setOffset((offset) => offset + 10); // increments offset for next api call
 
-    // updates the state
-    dispatch(updateFilteredJobsList({ jobsList: filteredJobs }));
-    dispatch(updateJobsList({ jobsList: [...jobsList, ...json.jdList] }));
+      // updates the state
+      dispatch(updateFilteredJobsList({ jobsList: filteredJobs }));
+      dispatch(updateJobsList({ jobsList: [...jobsList, ...json.jdList] }));
+    } catch (error) {
+      console.error(error);
+    } finally {
+      dispatch(toggleLoading());
+    }
   };
 
   // handles infinite scroll
@@ -52,20 +60,24 @@ const Body = () => {
     getJobsData();
   };
 
-  useEffect(() => {
-    const filteredJobsList = filterJobsList();
-    dispatch(updateFilteredJobsList({ jobsList: filteredJobsList }));
-  }, [appliedFilters]);
-
-  useEffect(() => {
-    getJobsData();
-  }, []);
-
+  // adding scroll event listener
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isLoading, appliedFilters]);
 
+  // filters jobs when filters are applied
+  useEffect(() => {
+    const filteredJobsList = filterJobsList();
+    dispatch(updateFilteredJobsList({ jobsList: filteredJobsList }));
+  }, [appliedFilters]);
+
+  // fetches data on first render
+  useEffect(() => {
+    getJobsData();
+  }, []);
+
+  // function to filter the jobs based on various filters applied
   const filterJobsList = (jobs = jobsList) => {
     if (Object.keys(appliedFilters).length === 0) return jobs;
     const filteredJobs = jobs.filter((job) => {
@@ -127,7 +139,7 @@ const Body = () => {
 
       // check if the company name input value a substring of the company name of this job
       let companyValid = false;
-      if (!companyValid.length || company[0] === "") {
+      if (!company.length || company[0] === "") {
         companyValid = true;
       }
       companyValid = companyName
@@ -136,7 +148,7 @@ const Body = () => {
 
       // check if the location input value a substring of the location of this job
       let locationValid = false;
-      if (!locationValid.length || filterLocation[0] === "") {
+      if (!filterLocation.length || filterLocation[0] === "") {
         locationValid = true;
       }
       locationValid = location

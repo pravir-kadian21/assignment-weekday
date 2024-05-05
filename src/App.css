@@ -1,5 +1,5 @@
 .filters {
-  margin: 12px !important;
+  margin: 0.5rem !important;
 }
 
 .filters .MuiAutocomplete-tag {
@@ -13,15 +13,15 @@
 .filters-container {
   display: flex;
   flex-wrap: wrap;
-  margin: 12px 36px;
+  margin: 0.75rem 2.25rem;
 }
 
 .job-paper {
   width: 25%;
-  padding: 24px;
+  padding: 1.5rem;
   overflow-wrap: break-word;
-  height: 560px;
-  margin: 24px;
+  height: 36rem;
+  margin: 1.5rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px 0px !important;
   border-radius: 24px;
 }
@@ -79,7 +79,7 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 80px;
+  height: 5rem;
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0) 0%,
@@ -134,7 +134,8 @@
 .show-more {
   position: absolute;
   bottom: -12px;
-  left: 120px;
+  transform: translateX(-50%);
+  left: 50%;
   color: #4943da;
   font-size: 14px;
   cursor: pointer;
@@ -151,14 +152,49 @@
   text-decoration: none;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1300px) {
   .job-paper {
     width: 38%;
   }
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1000px) {
+  .job-paper {
+    width: 36%;
+    height: 37.5rem;
+  }
+}
+
+@media screen and (max-width: 880px) {
   .job-paper {
     width: 100%;
+    height: 480px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .job-paper {
+    width: 100%;
+    height: 34rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .job-paper {
+    width: 100%;
+    height: 40rem;
+  }
+  body {
+    padding: 2rem 0;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .job-paper {
+    width: 100%;
+    height: 44rem;
+  }
+  body {
+    padding: 2rem 0;
   }
 }
